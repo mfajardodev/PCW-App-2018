@@ -4,3 +4,4 @@ App for Polycultural Weekend that uses the following frameworks:
 Django
 Bootstrap
 Jquery
+HTML
