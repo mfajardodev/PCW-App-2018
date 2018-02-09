@@ -70,18 +70,12 @@
                     Choose event
                   </button>
                   <div class="dropdown-menu">
-                   <h6 class="dropdown-header">Fri</h6>
-                   <a class="dropdown-item" href="#">event 1</a>
-                   <a class="dropdown-item" href="#">event 2</a>
-                   <a class="dropdown-item" href="#">event 3</a>
-                   <h6 class="dropdown-header">Sat</h6>
-                   <a class="dropdown-item" href="#">event 1</a>
-                   <a class="dropdown-item" href="#">event 2</a>
-                   <a class="dropdown-item" href="#">event 3</a>
-                   <h6 class="dropdown-header">Sun</h6>
-                   <a class="dropdown-item" href="#">event 1</a>
-                   <a class="dropdown-item" href="#">event 2</a>
-                   <a class="dropdown-item" href="#">event 3</a>
+		   {% for day in days %}   	
+                      <h6 class="dropdown-header">{{day.day_text}}</h6>
+	              {% for event in events %}
+                         <a class="dropdown-item" href="/events/{{event.id}}/">{{event.event_text}}</a>
+		      {% end for %}
+                   {% end for %}
                  </div>
                </div><!-- Close Event Selection -->
 
@@ -95,22 +89,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>event1</td>
-                    <td>baker</td>
-                    <td>never</td>
-                  </tr>
-                  <tr>
-                    <td>event1</td>
-                    <td>math/sci</td>
-                    <td>always</td>
-                  </tr>
-                  <tr>
-                    <td>event1</td>
-                    <td>the uu</td>
-                    <td>whenever</td>
-                  </tr>
-                </tbody>
+                {% for event in events %}
+		<tr>
+                    <td>{{event.event_text}}</td>
+                    <td>{{event.event_loc}}</td>
+                    <td>{{event.event_time}}</td>
+                </tr>
+		</tbody>		
               </table><!-- Close Event Table-->
 
             </div>
