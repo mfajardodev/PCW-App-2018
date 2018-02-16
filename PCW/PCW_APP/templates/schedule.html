@@ -90,32 +90,13 @@
             </tr>
           </thead>
           <tbody>
+	  {% for event in events %}
             <tr>
-              <td>event1</td>
-              <td>baker</td>
-              <td>never</td>
+              <td>{{event.event_text}}</td>
+              <td>{{event.event_loc}}</td>
+              <td>{{event.event_time}}</td>
             </tr>
-            <tr>
-              <td>event1</td>
-              <td>math/sci</td>
-              <td>always</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>the uu</td>
-              <td>whenever</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>baker</td>
-              <td>never</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>math/sci</td>
-              <td>always</td>
-            </tr>
-
+          {% end for %} 
           </tbody>
         </table>
       </div><!-- Close Friday Schedule Table -->
@@ -132,31 +113,13 @@
             </tr>
           </thead>
           <tbody>
+            {% for event in events %}
             <tr>
-              <td>event1</td>
-              <td>baker</td>
-              <td>never</td>
+              <td>{{event.event_text}}</td>
+              <td>{{event.event_loc}}</td>
+              <td>{{event.event_time}}</td>
             </tr>
-            <tr>
-              <td>event1</td>
-              <td>math/sci</td>
-              <td>always</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>the uu</td>
-              <td>whenever</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>baker</td>
-              <td>never</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>math/sci</td>
-              <td>always</td>
-            </tr>
+          {% end for %} 
           </tbody>
         </table>
       </div> <!-- close Saturday Schedule Table  -->
@@ -173,31 +136,13 @@
             </tr>
           </thead>
           <tbody>
+          {% for event in events %}
             <tr>
-              <td>event1</td>
-              <td>baker</td>
-              <td>never</td>
+              <td>{{event.event_text}}</td>
+              <td>{{event.event_loc}}</td>
+              <td>{{event.event_time}}</td>
             </tr>
-            <tr>
-              <td>event1</td>
-              <td>math/sci</td>
-              <td>always</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>the uu</td>
-              <td>whenever</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>baker</td>
-              <td>never</td>
-            </tr>
-            <tr>
-              <td>event1</td>
-              <td>math/sci</td>
-              <td>always</td>
-            </tr>
+          {% end for %} 
           </tbody>
         </table>
       </div><!-- Close Sunday Schedule Table -->
