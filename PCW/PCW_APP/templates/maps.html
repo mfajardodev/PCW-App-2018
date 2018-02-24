@@ -88,7 +88,9 @@
 		   {% for day in days %}   	
                       <h6 class="dropdown-header">{{day.day_text}}</h6>
 	              {% for event in events %}
-                         <a class="dropdown-item" href="/events/{{event.id}}/">{{event.event_text}}</a>
+                         {% if( event.day == day ) %}
+                            <a class="dropdown-item" href="/events/{{event.id}}/">{{event.title}}</a>
+                         {$ endif %}
 		      {% end for %}
                    {% end for %}
                  </div>
@@ -106,9 +108,9 @@
                 <tbody>
                 {% for event in events %}
 		<tr>
-                    <td>{{event.event_text}}</td>
-                    <td>{{event.event_loc}}</td>
-                    <td>{{event.event_time}}</td>
+                    <td>{{event.title}}</td>
+                    <td>{{event.location}}</td>
+                    <td>{{event.time}}</td>
                 </tr>
 		</tbody>		
               </table><!-- Close Event Table-->
