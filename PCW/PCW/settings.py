@@ -85,7 +85,9 @@ WSGI_APPLICATION = 'PCW.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.path.join(BASE_DIR, 'my.cnf'),
+        'NAME': 'PCW_APP',                  
+        'USER': 'PCW',             
+        'PASSWORD': 'Pcw2018!!!!!',
     }
 }
 
