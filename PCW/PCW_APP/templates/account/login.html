@@ -1,3 +1,5 @@
+{% load staticfiles %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,22 +48,27 @@
 	<!-- Day Navigation Bar -->
 	<ul class="nav nav-pills">
 		<li class="nav-item">
-			<a data-toggle="tab" class="nav-link" onclick="location.href = 'signup.html';"/>Sign Up</a>
+			<a data-toggle="tab" class="nav-link" onclick="location.href='{% url 'signup' %}'"/>Sign Up</a>
 		</li>
 	</ul>
 
-	<img class="screen-fit center" src="pcwplanelogo.png">
+	<img class="screen-fit center" src="{% static 'pcwplanelogo.png' %}">
 
 	<div class="tab-pane show active" id="login"  role="tabpanel">
-		<form class="center">
-			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Password</label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-			</div>
+		<form method="post" class="center">
+			{% csrf_token %}
+			    {% for field in form %}
+			        <div class="form-group">
+			            {{ field.label_tag}}
+			            {% if field.help_text %}
+			                <small style="color: grey">{% autoescape off %} {{ field.help_text }} {% endautoescape %}</small>
+			            {% endif %}
+			            {{field|attr:"class:form-control"}}<br>
+			            {% for error in field.errors %}
+			                <p style="color: red">{{ error }}</p>
+			            {% endfor %}
+			        </div>
+			    {% endfor %}
 			<button type="submit" class="btn btn-primary">Login</button>
 			<button type="button" class="btn btn-primary" onclick="location.href = 'password_reset.html';">Forgot Password</button>
 		</form>

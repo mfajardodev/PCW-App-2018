@@ -1,19 +1,22 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
 
-class User(models.Model):
-   email = models.CharField(max_length=200)
-   registered = models.IntegerField(default=0)
-   username = models.CharField(max_length=200)
-   password = models.CharField(max_length=200)
+# class User(models.Model):
+#    email = models.CharField(max_length=200)
+#    registered = models.IntegerField(default=0)
+#    username = models.CharField(max_length=200)
+#    password = models.CharField(max_length=200)
 
 class Markers(models.Model):
    name = models.CharField(max_length=60)
    address = models.CharField(max_length=80)
-   lat = models.FloatField(max_digits=10, decimal_places=6)
-   lng = models.FloatField(max_digits=10, decimal_places=6)
+   lat = models.DecimalField(max_digits=10, decimal_places=6)
+   lng = models.DecimalField(max_digits=10, decimal_places=6)
    type = models.CharField(max_length=30)
 
 class Events(models.Model):
@@ -23,5 +26,17 @@ class Events(models.Model):
    startTime = models.DateTimeField()
    endTime = models.DateTimeField()
 
-class Days(models.Model);
+class Days(models.Model):
    name = models.CharField(max_length=10)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
