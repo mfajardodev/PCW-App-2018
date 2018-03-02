@@ -20,7 +20,8 @@ class Events(models.Model):
    title = models.CharField(max_length=50)
    location = models.CharField(max_length=60)
    day = models.CharField(max_length=10)
-   time = models.DateTimeField()
+   startTime = models.DateTimeField()
+   endTime = models.DateTimeField()
 
 class Days(models.Model);
    name = models.CharField(max_length=10)
