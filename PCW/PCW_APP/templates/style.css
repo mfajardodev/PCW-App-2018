@@ -1,0 +1,41 @@
+.navbar {
+	background-color: #2b7434;
+}
+
+.nav-item {
+	color: white;
+}
+.material-icons {
+	color: white;
+}
+.bmd-layout-drawer {
+	background-color: #c19f49;
+}
+.list-group-item {
+	color: white;
+}
+.drawer-header {
+	color: white;
+}
+
+.nav-pills {
+	overflow: hidden;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.nav-item a {
+	background-color: #2b7434;
+	color: white;
+}
+
+.nav-item {
+	min-width: 32.75%;
+	max-width: 100%;
+}
+
+.nav-item a.nav-link.active, .nav-item a.nav-link.active:focus {
+	background-color: #c19f49;
+}
