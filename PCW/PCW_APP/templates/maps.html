@@ -96,7 +96,7 @@
 		   {% for day in days %}   	
                       <h6 class="dropdown-header">{{day.day_text}}</h6>
 	              {% for event in events %}
-                         {% if( event.day == day ) %}
+                         {% if event.day == day %}
                             <a class="dropdown-item" href="/events/{{event.id}}/">{{event.title}}</a>
                          {$ endif %}
 		      {% end for %}
