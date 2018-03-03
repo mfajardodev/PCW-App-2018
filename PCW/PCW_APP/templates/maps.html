@@ -98,7 +98,7 @@
 	              {% for event in events %}
                          {% if event.day == day %}
                             <a class="dropdown-item" href="/events/{{event.id}}/">{{event.title}}</a>
-                         {$ endif %}
+                         {% endif %}
 		      {% endfor %}
                    {% endfor %}
                  </div>
