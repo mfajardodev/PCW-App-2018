@@ -62,7 +62,7 @@ def home(request):
     if (request.user.is_staff):
         return render(request, 'data.html')
     else: 
-        return render(request, '')
+        return render(request, 'maps')
 
 @staff_required(login_url='/')
 def data(request):
