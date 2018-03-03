@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
   <!-- Bootstrap Material Design -->
   <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
   <style>  
        #map {
@@ -44,13 +45,16 @@
     <div id="dw-s2" class="bmd-layout-drawer bg-faded">
       <header>
         <a class="navbar-brand"></a>
-        <img src="pcwplanelogo.png" class="img-fluid" alt="My responsive image.">
+        <img src="{% static 'img/pcwplanelogo.png' %}" class="img-fluid" alt="My responsive image.">
       </header>
       <ul class="list-group">
         <a class="list-group-item">PCW 2018</a>
-        <a class="list-group-item" href="maps.html">Maps</a>
-        <a class="list-group-item" href="pamphlet.html">Pamphlets</a>
-        <a class="list-group-item" href="schedule.html">Event Schedule</a>
+        {% if request.user.is_staff %}
+        <a href="{% url data %}">{% trans 'Coordinator View' %}</a>
+        {% endif %}
+        <a class="list-group-item" href="{% url 'maps' %}">Cal Poly Map</a>
+        <a class="list-group-item" href="{% url 'pamphlet' %}">PCW 2018 Pamphlet</a>
+        <a class="list-group-item" href="{% url 'schedule' %}">Event Schedule</a>
       </ul>
     </div>
     <main class="bmd-layout-content">
