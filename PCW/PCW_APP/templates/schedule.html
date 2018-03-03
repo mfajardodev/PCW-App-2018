@@ -46,9 +46,9 @@
       {% if request.user.is_staff %}
       <a href="{% url data %}">{% trans 'Coordinator View' %}</a>
       {% endif %}
-      <a class="list-group-item" href="maps.html">Cal Poly Map</a>
-      <a class="list-group-item" href="pamphlet.html">PCW 2018 Pamphlet</a>
-      <a class="list-group-item" href="schedule.html">Event Schedule</a>
+      <a class="list-group-item" href="{% url 'maps' %}">Cal Poly Map</a>
+      <a class="list-group-item" href="{% url 'pamphlet' %}">PCW 2018 Pamphlet</a>
+      <a class="list-group-item" href="{% url 'schedule' %}">Event Schedule</a>
     </ul>
   </div>
   <main class="bmd-layout-content">
