@@ -93,14 +93,14 @@
                     Choose event
                   </button>
                   <div class="dropdown-menu">
-		   {% for day in days %}   	
+		              {% for day in days %}   	
                       <h6 class="dropdown-header">{{day.day_text}}</h6>
-	              {% for event in events %}
-                         {% if event.day == day %}
-                            <a class="dropdown-item" href="/events/{{event.id}}/">{{event.title}}</a>
-                         {% endif %}
-		      {% endfor %}
-                   {% endfor %}
+	                    {% for event in events %}
+                        {% if event.day == day %}
+                          <a class="dropdown-item" href="/events/{{event.id}}/">{{event.title}}</a>
+                        {% endif %}
+		                  {% endfor %}
+                  {% endfor %}
                  </div>
                </div><!-- Close Event Selection -->
 
@@ -115,13 +115,14 @@
                 </thead>
                 <tbody>
                 {% for event in events %}
-		<tr>
+	              <tr>
                     <td>{{event.title}}</td>
                     <td>{{event.location}}</td>
                     <td>{{event.startTime}}</td>
                     <td>{{evenmt.endTime}}</td>
                 </tr>
-		</tbody>		
+                {% endfor %}
+		            </tbody>		
               </table><!-- Close Event Table-->
 
             </div>
