@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.utils.encoding import force_text
-from django.utils.http import urlsafe_base64_decode
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes
