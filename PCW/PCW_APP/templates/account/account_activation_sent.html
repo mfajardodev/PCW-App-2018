@@ -54,28 +54,7 @@
 
     <img class="screen-fit center" src="{% static 'img/pcwplanelogo.png' %}">
 
-
-    <!-- Signup Table -->
-    <div class="tab-pane show" id="signUp"  role="tabpanel">
-        <!-- Event information -->
-        <form class="center" method="post">
-            {% csrf_token %}
-                {% for field in form %}
-
-                    <div class="form-group">
-                        {{ field.label_tag}}
-                        {% if field.help_text %}
-                            <small style="color: grey">{% autoescape off %} {{ field.help_text }} {% endautoescape %}</small>
-                        {% endif %}
-                        {{field|attr:"class:form-control"}}<br>
-                        {% for error in field.errors %}
-                            <p style="color: red">{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-            <button type="submit" class="center btn btn-primary">Sign Up</button>
-        </form>
-    </div> <!-- close Signup Schedule Table  -->
+    <h1>Please confirm your email to complete the registration.</h1>
 
     <!-- Dependencies for Bootstrap Material Design -->
     <!-- jQuery first, then tether, then Bootstrap Material Design JS. -->

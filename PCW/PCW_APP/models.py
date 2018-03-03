@@ -23,8 +23,8 @@ class Events(models.Model):
    title = models.CharField(max_length=50)
    location = models.CharField(max_length=60)
    day = models.CharField(max_length=10)
-   startTime = models.DateTimeField()
-   endTime = models.DateTimeField()
+   startTime = models.DateTimeField(null=True, blank=True)
+   endTime = models.DateTimeField(null=True, blank=True)
 
 class Days(models.Model):
    name = models.CharField(max_length=10)
@@ -34,6 +34,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    email_confirmed = models.BooleanField(default=False)
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +41,9 @@
     </header>
     <ul class="list-group">
       <a class="list-group-item">PCW 2018</a>
+      {% if request.user.is_staff %}
+      <a href="{% url data %}">{% trans 'Coordinator View' %}</a>
+      {% endif %}
       <a class="list-group-item" href="maps.html">Cal Poly Map</a>
       <a class="list-group-item" href="pamphlet.html">PCW 2018 Pamphlet</a>
       <a class="list-group-item" href="schedule.html">Event Schedule</a>
