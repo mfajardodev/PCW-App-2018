@@ -25,7 +25,7 @@ SECRET_KEY = '4$87)*un7l4nd3jodt@8knfr1_c%aj+&80ur&#hsylmx+p!iuq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [localhost]
 
 LOGIN_REDIRECT_URL = 'home'
 
@@ -33,8 +33,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'youremail@gmail.com'
-EMAIL_HOST_PASSWORD = 'yourpassword'
+EMAIL_HOST_USER = 'pcw.housing.tech@gmail.com'
+EMAIL_HOST_PASSWORD = 'PCWTECH2018'
 EMAIL_PORT = 587
 
 # Application definition

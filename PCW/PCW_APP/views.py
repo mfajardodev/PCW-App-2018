@@ -37,6 +37,7 @@ def signup(request):
             user = form.save()
             user.refresh_from_db()  # load the profile instance created by the signal
             user.profile.birth_date = form.cleaned_data.get('birth_date')
+            user.is_active = False
             user.save()
             current_site = get_current_site(request)
             subject = 'Activate Your MySite Account'
