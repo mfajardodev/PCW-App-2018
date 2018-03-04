@@ -31,11 +31,11 @@ LOGIN_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pcw.housing.tech@gmail.com'
-EMAIL_HOST_PASSWORD = 'PCWTECH2018'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
+EMAIL_HOST_USER = 'pcwapp'
+EMAIL_HOST_PASSWORD = 'PCWTECH2018'
+EMAIL_USE_TLS = True
 
 # Application definition
 
