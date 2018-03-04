@@ -49,7 +49,7 @@ def signup(request):
                 'token': account_activation_token.make_token(user),
             })
             print(user.email)
-            send_mail(subject, message, 'PCW.Housing.Tech@gmail.com', [user.email], fail_silently=False)
+            send_mail(subject, message, 'noreply@pcwhousing.com', [user.email], fail_silently=False)
             # user.email_user(subject, message, fail_silently=False)
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
