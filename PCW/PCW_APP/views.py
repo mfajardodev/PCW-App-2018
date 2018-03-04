@@ -10,6 +10,7 @@ from .tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes
 from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 def activate(request, uidb64, token):
     try:
@@ -40,14 +41,16 @@ def signup(request):
             user.is_active = False
             user.save()
             current_site = get_current_site(request)
-            subject = 'Activate Your MySite Account'
+            subject = 'Activate Your PCW APP Account'
             message = render_to_string('account/account_activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
                 'token': account_activation_token.make_token(user),
             })
-            user.email_user(subject, message)
+            print(user.email)
+            send_mail(subject, message, 'PCW.Housing.Tech@gmail.com', [user.email], fail_silently=False)
+            # user.email_user(subject, message, fail_silently=False)
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
             return redirect('account_activation_sent')

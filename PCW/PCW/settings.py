@@ -29,11 +29,10 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 LOGIN_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'pcwapp'
+EMAIL_HOST_USER = 'PCWTech'
 EMAIL_HOST_PASSWORD = 'PCWTECH2018'
 EMAIL_USE_TLS = True
 
