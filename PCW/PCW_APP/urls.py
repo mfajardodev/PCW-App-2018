@@ -2,8 +2,8 @@
 # @Author: Chris Kim
 # @Date:   2018-01-25 19:51:43
 # @Last Modified by:   Chris Kim
-# @Last Modified time: 2018-03-02 21:36:20
-
+# @Last Modified time: 2018-03-03 16:54:00
+from django.conf.urls import url
 from django.urls import re_path
 from django.urls import path, include
 from . import views
@@ -15,7 +15,7 @@ urlpatterns = [
     re_path(r'^signup/$', views.signup, name='signup'),
    	re_path(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     re_path(r'^account_activation_sent/$', views.account_activation_sent, name='account_activation_sent'),
-    re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
     path('', auth_views.login, {'template_name': 'account/login.html'}, name='login'),
     path('home', views.home, name='home'),
@@ -23,6 +23,6 @@ urlpatterns = [
     path('maps', views.maps, name='maps'),
     path('pamphlet', views.pamphlet, name='pamphlet'),
     path('schedule', views.schedule, name='schedule'),
-    path('account_activation_sent', views.data, name='account_activation_sent'),
+    path('account/account_activation_sent', views.account_activation_sent, name='account_activation_sent'),
 
 ]
