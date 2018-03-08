@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,24 +18,10 @@
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
- <style>
-  .nav-pills {
-    background-color: #d3d3d3;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .nav-item{
-    min-width: 48%;
-    max-width: 100%;
-  }
-</style>
-
 <!-- Bootstrap Material Design -->
 <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
+
+ <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
 
@@ -59,8 +47,9 @@
     <ul class="list-group">
       <a class="list-group-item">PCW 2018</a>
       {% if request.user.is_staff %}
-      <a href="{% url data %}">{% trans 'Coordinator View' %}</a>
+      <a class="list-group-item" href="{% url 'data' %}">{% trans 'Coordinator View' %}</a>
       {% endif %}
+      <a class="list-group-item" href="{% url 'profile' %}">{{user.first_name}} {{user.last_name}}</a>
       <a class="list-group-item" href="{% url 'maps' %}">Cal Poly Map</a>
       <a class="list-group-item" href="{% url 'pamphlet' %}">PCW 2018 Pamphlet</a>
       <a class="list-group-item" href="{% url 'schedule' %}">Event Schedule</a>
