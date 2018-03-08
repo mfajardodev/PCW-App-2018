@@ -36,6 +36,8 @@ class Profile(models.Model):
     birth_date = models.DateField(null=True, blank=True)
     email_confirmed = models.BooleanField(default=False)
     QR_code = models.URLField(null=True)
+    signed_in = models.BooleanField(default=False)
+    Organization = models.CharField(max_length=30, blank=True)
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):

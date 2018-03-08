@@ -84,6 +84,10 @@ def pamphlet(request):
 def schedule(request):
     return render(request, 'schedule.html')
 
+@login_required(login_url='/')
+def profile(request):
+    return render(request, 'profileview.html')
+
 
 def account_activation_sent(request):
     return render(request, 'account/account_activation_sent.html')

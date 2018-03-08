@@ -2,7 +2,7 @@
 # @Author: Chris Kim
 # @Date:   2018-01-25 19:51:43
 # @Last Modified by:   Chris Kim
-# @Last Modified time: 2018-03-03 16:54:00
+# @Last Modified time: 2018-03-08 15:30:41
 from django.conf.urls import url
 from django.urls import re_path
 from django.urls import path, include
@@ -23,6 +23,7 @@ urlpatterns = [
     path('maps', views.maps, name='maps'),
     path('pamphlet', views.pamphlet, name='pamphlet'),
     path('schedule', views.schedule, name='schedule'),
+    path('account/profile', views.profile, name='profile'),
     path('account/account_activation_sent', views.account_activation_sent, name='account_activation_sent'),
 
 ]
