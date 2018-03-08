@@ -29,6 +29,10 @@ class Events(models.Model):
 class Days(models.Model):
    name = models.CharField(max_length=10)
 
+class SignInTime(models.Model):
+  startTime = models.DateTimeField(null=True, blank=True)
+  endTime = models.DateTimeField(null=True, blank=True)
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
