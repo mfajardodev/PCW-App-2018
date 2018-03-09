@@ -12,19 +12,14 @@ from django.dispatch import receiver
 #    username = models.CharField(max_length=200)
 #    password = models.CharField(max_length=200)
 
-class Markers(models.Model):
-   name = models.CharField(max_length=60)
-   address = models.CharField(max_length=80)
-   lat = models.DecimalField(max_digits=10, decimal_places=6)
-   lng = models.DecimalField(max_digits=10, decimal_places=6)
-   type = models.CharField(max_length=30)
-
 class Events(models.Model):
-   title = models.CharField(max_length=50)
-   location = models.CharField(max_length=60)
-   day = models.CharField(max_length=10)
-   startTime = models.DateTimeField(null=True, blank=True)
-   endTime = models.DateTimeField(null=True, blank=True)
+  title = models.CharField(max_length=50)
+  location = models.CharField(max_length=60)
+  lat = models.DecimalField(max_digits=10, decimal_places=6, default=0)
+  lng = models.DecimalField(max_digits=10, decimal_places=6, default=0)
+  day = models.CharField(max_length=10)
+  startTime = models.DateTimeField(null=True, blank=True)
+  endTime = models.DateTimeField(null=True, blank=True)
 
 class Days(models.Model):
    name = models.CharField(max_length=10)
