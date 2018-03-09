@@ -13,16 +13,20 @@ from django.dispatch import receiver
 #    password = models.CharField(max_length=200)
 
 class Events(models.Model):
-  title = models.CharField(max_length=50)
-  location = models.CharField(max_length=60)
-  lat = models.DecimalField(max_digits=10, decimal_places=6, default=0)
-  lng = models.DecimalField(max_digits=10, decimal_places=6, default=0)
-  day = models.CharField(max_length=10)
-  startTime = models.DateTimeField(null=True, blank=True)
-  endTime = models.DateTimeField(null=True, blank=True)
+    title = models.CharField(max_length=50)
+    location = models.CharField(max_length=60)
+    lat = models.DecimalField(max_digits=10, decimal_places=6, default=0)
+    lng = models.DecimalField(max_digits=10, decimal_places=6, default=0)
+    day = models.CharField(max_length=10)
+    startTime = models.DateTimeField(null=True, blank=True)
+    endTime = models.DateTimeField(null=True, blank=True)
 
 class Days(models.Model):
-   name = models.CharField(max_length=10)
+     name = models.CharField(max_length=10)
+
+class SignInTime(models.Model):
+    startTime = models.DateTimeField(null=True, blank=True)
+    endTime = models.DateTimeField(null=True, blank=True)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -35,5 +39,5 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+            Profile.objects.create(user=instance)
     instance.profile.save()
