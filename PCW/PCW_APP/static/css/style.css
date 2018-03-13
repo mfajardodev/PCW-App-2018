@@ -2,9 +2,6 @@
 	background-color: #2b7434;
 }
 
-.nav-item {
-	color: white;
-}
 .material-icons {
 	color: white;
 }
@@ -18,12 +15,27 @@
 	color: white;
 }
 
+.screen-fit-logo {
+	max-height: 65%;
+	max-width: 65%;
+	margin: auto;
+	display: block;
+}
+
+.tab-content {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 75px;
+}
+
 .nav-pills {
-	overflow: hidden;
+	display: inline-flex;
 	position: fixed;
+	overflow: hidden;
 	bottom: 0;
 	width: 100%;
 	text-align: center;
+
 }
 
 .nav-item a {
@@ -31,11 +43,54 @@
 	color: white;
 }
 
-.nav-item {
-	min-width: 32.75%;
-	max-width: 100%;
+.nav-item.nav-header {
+	min-width: 80%;
+	color: white;
 }
 
-.nav-item a.nav-link.active, .nav-item a.nav-link.active:focus {
+.nav-item.schedule-tab {
+	min-width: 33.3%;
+	max-width: 100%;
+	color: white;
+}
+
+.nav-item.account-creation {
+	width: 100%;
+	color: white;
+}
+
+.nav-item.data-tabs {
+	min-width: 50%;
+	max-width: 100%;
+	color: white;
+}
+
+.nav-item a.nav-link.active,
+ .nav-item a.nav-link.active:focus,
+ .nav-item a.nav-link.active:hover {
 	background-color: #c19f49;
+}
+
+#signUp {
+	margin-bottom: 75px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#login {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.btn-primary, .bmd-label-static {
+    color: #2b7434 !important;
+}
+
+.btn-primary:active, .btn-primary:focus {
+	color: #c19f49 !important;
+}
+
+.confirm-message {
+	width: 100%;
+	border-bottom: 50px;
 }
