@@ -13,31 +13,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-	<style>
-		.nav-pills {
-			background-color: #d3d3d3;
-			overflow: hidden;
-			position: fixed;
-			bottom: 0;
-			width: 100%;
-			text-align: center;
-		}
-
-		.nav-item{
-			overflow: hidden;
-			min-width: 98.0%;
-		}
-
-		.screen-fit{
-			max-height: 75%;
-			max-width: 75%;
-		}
-
-		.center {
-			display: block;
-			margin: auto;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 	<!-- Bootstrap Material Design -->
 	<link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
@@ -47,12 +23,12 @@
 <body>
 	<!-- Day Navigation Bar -->
 	<ul class="nav nav-pills">
-		<li class="nav-item">
+		<li class="nav-item account-creation">
 			<a data-toggle="tab" class="nav-link" onclick="location.href='{% url 'signup' %}'"/>Sign Up</a>
 		</li>
 	</ul>
 
-	<img class="screen-fit center" src="{% static 'img/pcwplanelogo.png' %}">
+	<img class="screen-fit-logo" src="{% static 'img/pcwplanelogo.png' %}">
 
 	<div class="tab-pane show active" id="login"  role="tabpanel">
 		<form method="post" class="center">
