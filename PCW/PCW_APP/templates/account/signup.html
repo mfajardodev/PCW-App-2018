@@ -27,17 +27,9 @@
             overflow: hidden;
             min-width: 98.0%;
         }
-
-        .screen-fit{
-            max-height: 75%;
-            max-width: 75%;
-        }
-
-        .center {
-            display: block;
-            margin: auto;
-        }
     </style>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     <!-- Bootstrap Material Design -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
@@ -45,14 +37,8 @@
 </head>
 
 <body>
-    <!-- Day Navigation Bar -->
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a data-toggle="tab" class="nav-link" onclick="location.href = '{% url 'login' %}'"/>Back</a>
-        </li>
-    </ul>
 
-    <img class="screen-fit center" src="{% static 'img/pcwplanelogo.png' %}">
+    <img class="screen-fit-logo" src="{% static 'img/pcwplanelogo.png' %}">
 
 
     <!-- Signup Table -->
@@ -76,6 +62,13 @@
             <button type="submit" class="center btn btn-primary">Sign Up</button>
         </form>
     </div> <!-- close Signup Schedule Table  -->
+
+    <!-- Day Navigation Bar -->
+    <ul class="nav nav-pills">
+        <li class="nav-item account-creation">
+            <a data-toggle="tab" class="nav-link" onclick="location.href = '{% url 'login' %}'"/>Back</a>
+        </li>
+    </ul>
 
     <!-- Dependencies for Bootstrap Material Design -->
     <!-- jQuery first, then tether, then Bootstrap Material Design JS. -->

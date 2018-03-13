@@ -14,48 +14,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <style>
-        .nav-pills {
-            background-color: #d3d3d3;
-            overflow: hidden;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        .nav-item{
-            overflow: hidden;
-            min-width: 98.0%;
-        }
-
-        .screen-fit{
-            max-height: 75%;
-            max-width: 75%;
-        }
-
-        .center {
-            display: block;
-            margin: auto;
-        }
-    </style>
-
     <!-- Bootstrap Material Design -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
 
 <body>
+
+    <img class="screen-fit-logo" src="{% static 'img/pcwplanelogo.png' %}">
+
+    <div class="confirm-message">
+        Please confirm your email to complete the registration.
+    </div>
+
     <!-- Day Navigation Bar -->
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a data-toggle="tab" class="nav-link" onclick="location.href = '{% url 'login' %}'"/>Back</a>
-        </li>
-    </ul>
-
-    <img class="screen-fit center" src="{% static 'img/pcwplanelogo.png' %}">
-
-    <h1>Please confirm your email to complete the registration.</h1>
+    <div>
+        <ul class="nav nav-pills">
+            <li class="nav-item account-creation">
+                <a data-toggle="tab" class="nav-link" onclick="location.href = '{% url 'login' %}'"/>Back</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Dependencies for Bootstrap Material Design -->
     <!-- jQuery first, then tether, then Bootstrap Material Design JS. -->
