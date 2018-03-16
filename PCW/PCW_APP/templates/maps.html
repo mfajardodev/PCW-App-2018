@@ -80,8 +80,16 @@
         });
         var marker = new google.maps.Marker({
           position: baker,
-          map: map
-       });
+          map: map         
+        });
+
+        {% for event in Events %}
+        {print(event)}
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng({{event.lat}}, {{event.lng}}),
+            map: map
+          });
+        {% endfor %}
       }
     </script>
     <script async defer
@@ -115,12 +123,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                {% for event in events %}
+                {% for event in Events %}
 	              <tr>
                     <td>{{event.title}}</td>
                     <td>{{event.location}}</td>
                     <td>{{event.startTime}}</td>
-                    <td>{{evenmt.endTime}}</td>
+                    <td>{{event.endTime}}</td>
                 </tr>
                 {% endfor %}
 		            </tbody>		

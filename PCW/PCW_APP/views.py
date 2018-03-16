@@ -11,6 +11,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from .models import *
 
 def activate(request, uidb64, token):
     try:
@@ -66,7 +67,11 @@ def home(request):
     if (request.user.is_staff):
         return render(request, 'data.html')
     else: 
-        return render(request, 'maps.html')
+        events = Events.objects.all()
+        for event in events:
+            print(event.lat)
+        print(events)
+        return render(request, 'maps.html', {Events: events})
 
 @staff_required(login_url='/')
 def data(request):
@@ -74,7 +79,9 @@ def data(request):
 
 @login_required(login_url='/')
 def maps(request):
-    return render(request, 'maps.html')
+    events = Events.objects.all()
+    print(events)
+    return render(request, 'maps.html', {Events: events})
 
 @login_required(login_url='/')
 def pamphlet(request):
