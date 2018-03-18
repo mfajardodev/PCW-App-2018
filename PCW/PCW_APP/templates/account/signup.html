@@ -50,6 +50,9 @@
 
                     <div class="form-group">
                         {{ field.label_tag}}
+                        {% if field.name == "password1" %}
+                            <small style="color: red">DO NOT USE YOUR CAL POLY PASSWORD.</small>
+                        {% endif %}
                         {% if field.help_text %}
                             <small style="color: grey">{% autoescape off %} {{ field.help_text }} {% endautoescape %}</small>
                         {% endif %}

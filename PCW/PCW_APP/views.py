@@ -36,30 +36,30 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            user.refresh_from_db()  # load the profile instance created by the signal
-            user.profile.birth_date = form.cleaned_data.get('birth_date')
-            user.is_active = False
-            user.save()
-            current_site = get_current_site(request)
-            subject = 'Activate Your PCW APP Account'
-            message = render_to_string('account/account_activation_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
-                'token': account_activation_token.make_token(user),
-            })
-            print(user.email)
-            send_mail(subject, message, 'noreply@mail.pcwhousing.com', [user.email], fail_silently=False)
-            # user.email_user(subject, message, fail_silently=False)
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=user.username, password=raw_password)
-            return redirect('account_activation_sent')
-
-            # login(request, user)
-            # return redirect('/')
+            if User.objects.all().filter(email=form.cleaned_data['email']).exists() and not User.objects.get(email=form.cleaned_data['email']).is_active:
+                user = User.objects.get(email=form.cleaned_data['email'])
+                user.username = form.cleaned_data['username']
+                user.set_password(form.cleaned_data['password1'])
+                user.is_active = False
+                user.save()
+                current_site = get_current_site(request)
+                subject = 'Activate Your PCW APP Account'
+                message = render_to_string('account/account_activation_email.html', {
+                    'user': user,
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                    'token': account_activation_token.make_token(user),
+                })
+                print(user.email)
+                send_mail(subject, message, 'noreply@mail.pcwhousing.com', [user.email], fail_silently=False)
+                # user.email_user(subject, message, fail_silently=False)
+                raw_password = form.cleaned_data.get('password1')
+                user = authenticate(username=user.username, password=raw_password)
+                return redirect('account_activation_sent')
     else:
         form = SignUpForm()
+        for field in form:
+            print(field)
     return render(request, 'account/signup.html', {'form': form})
 
 @login_required(login_url='/')
@@ -67,10 +67,10 @@ def home(request):
     if (request.user.is_staff):
         return render(request, 'data.html')
     else: 
-        events = Events.objects.all()
+        events = list(Events.objects.all())
         for event in events:
             print(event.lat)
-        print(events)
+        # print(list(events))
         return render(request, 'maps.html', {Events: events})
 
 @staff_required(login_url='/')

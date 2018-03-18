@@ -13,11 +13,11 @@ from django.dispatch import receiver
 #    password = models.CharField(max_length=200)
 
 class Events(models.Model):
-    title = models.CharField(max_length=50)
-    location = models.CharField(max_length=60)
-    lat = models.DecimalField(max_digits=10, decimal_places=6, default=0)
-    lng = models.DecimalField(max_digits=10, decimal_places=6, default=0)
-    day = models.CharField(max_length=10)
+    title = models.CharField(max_length=50, null=True)
+    location = models.CharField(max_length=6,  null=True)
+    lat = models.DecimalField(max_digits=10, decimal_places=6, default=0, null=True)
+    lng = models.DecimalField(max_digits=10, decimal_places=6, default=0, null=True)
+    day = models.CharField(max_length=10,  null=True)
     startTime = models.DateTimeField(null=True, blank=True)
     endTime = models.DateTimeField(null=True, blank=True)
 
