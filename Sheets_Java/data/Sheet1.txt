@@ -1,0 +1,2 @@
+Email, QR Code Link
+ckim65, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/hJHJgV
