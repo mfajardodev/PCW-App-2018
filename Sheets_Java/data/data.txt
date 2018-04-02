@@ -1,9 +1,0 @@
-First Name, Last Name, Email, QR Code Link
-CHRIS, KIM, ckim65@calpoly.edu, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
-CHRIS, KIM, test, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
-CHRIS, KIM, test, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
-CHRIS, KIM, test, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
-CHRIS, KIM, ckim65@calpoly.edu, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
-CHRIS, KIM, ckim65@calpoly.edu, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
-CHRIS, KIM, ckim65@calpoly.edu, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
-CHRIS, KIM, ckim65@calpoly.edu, https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://goo.gl/vSp3UP
