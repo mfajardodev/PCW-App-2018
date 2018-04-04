@@ -14,7 +14,7 @@ from django.dispatch import receiver
 
 class Events(models.Model):
     title = models.CharField(max_length=50, null=True)
-    location = models.CharField(max_length=6,  null=True)
+    location = models.CharField(max_length=15,  null=True)
     lat = models.DecimalField(max_digits=10, decimal_places=6, default=0, null=True)
     lng = models.DecimalField(max_digits=10, decimal_places=6, default=0, null=True)
     day = models.CharField(max_length=10,  null=True)
