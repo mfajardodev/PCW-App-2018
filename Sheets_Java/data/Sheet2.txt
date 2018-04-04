@@ -1,1 +1,2 @@
 Timestamp, QR Code Link
+2018-04-03 18:48:45, ckim65@calpoly.edu

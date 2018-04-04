@@ -21,6 +21,8 @@ import java.sql.Timestamp;
 import java.io.*;
 import java.util.*;
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.sql.ResultSetMetaData;
 
 public class Quickstart {
     /** Application name. */
@@ -141,7 +143,7 @@ public class Quickstart {
             
             try {
                 // establish database connection and statements/prepared statements/results
-                cnc = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/PCW_APP?serverTimezone=PST", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
+                cnc = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
                 PreparedStatement ps = null;
                 PreparedStatement upd = null;
                 ResultSet res1 = null;
@@ -169,7 +171,7 @@ public class Quickstart {
                             upd.setString(1, code);
                             int id = res1.getInt("id");
                             upd.setInt(2, id);
-                            upd.executeUpdate(update);
+                            upd.executeUpdate();
                         }
                     }
                 } 
@@ -227,15 +229,15 @@ public class Quickstart {
             int i = 0;
             try {
                 // establish database connection and statements/prepared statements/results
-                cnc = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/PCW_APP?serverTimezone=PST", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
+                cnc = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
                 PreparedStatement ps = null;
                 ResultSet res1 = null;
                 ResultSet res2 = null;
                 Statement stmt = null;
-                Statement upd = null;
+                PreparedStatement upd = null;
                 String st = "select * from PCW_APP_signintime";
                 String pst = "select * from PCW_APP_profile p, auth_user au where au.id = p.user_id and ? = au.email";
-                String update = "update PCW_APP_profile set signed_in = 1";
+                String update = "update PCW_APP_profile set signed_in = 1 where user_id = ?";
 
                 while(i < 2) {
                     printWriter = new PrintWriter(file);
@@ -252,9 +254,18 @@ public class Quickstart {
                           stmt = cnc.createStatement();
                           res1 = stmt.executeQuery(st);
                           while( res1.next() ) {
-                            Timestamp start = res1.getTimestamp("startTime");
-                            Timestamp end = res1.getTimestamp("endTime");
+                            java.util.Calendar cal = Calendar.getInstance();
+                            cal.setTimeZone(TimeZone.getTimeZone("PST"));
+                        
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTime(new Date());
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            sdf.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
+
+                            Timestamp start = Timestamp.valueOf(sdf.format(res1.getTimestamp("startTime")));
+                            Timestamp end = Timestamp.valueOf(sdf.format(res1.getTimestamp("endTime")));
                             Timestamp dt = Timestamp.valueOf(row.get(0).toString());
+            
                             if( dt.before(end) && dt.after(start) ) {
                                 checkedRows.add(row.get(3).toString());
                                 System.out.println("First filter");
@@ -269,9 +280,11 @@ public class Quickstart {
                             ps = cnc.prepareStatement(pst);
                             ps.setString(1,email);
                             res2 = ps.executeQuery();
-                            upd = cnc.createStatement();
                             while( res2.next() ) {
-                                upd.executeUpdate(update);
+                                int user = res2.getInt("user_id");
+                                upd = cnc.prepareStatement(update);
+                                upd.setInt(1, user);
+                                upd.executeUpdate();
                             }
                        }
                     }
