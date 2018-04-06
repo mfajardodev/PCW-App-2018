@@ -85,7 +85,7 @@ def maps(request):
 
 @login_required(login_url='/')
 def pamphlet(request):
-    return render(request, 'pamphlet.html')
+    return render(request, 'pamphlet.html', {"range": range(31), "range2": range(1,32) })
 
 @login_required(login_url='/')
 def schedule(request):

@@ -37,6 +37,8 @@ class Profile(models.Model):
     QR_code = models.URLField(null=True)
     signed_in = models.BooleanField(default=False)
     Organization = models.CharField(max_length=30, blank=True)
+    hostee = models.BooleanField(default=False)
+
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
