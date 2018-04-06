@@ -188,7 +188,7 @@ jdfajard@calpoly.edu, Hip Hop Choreo Club
 jfong44@calpoly.edu, Chinese Christian Fellowship
 jaguil60@calpoly.edu, Sigma Omega Nu
 jcmosque@calpoly.edu, National Society of Black Engineers
-822890309, Hispanic Business Student Association
+822890309, Hip Hop Choreo Club
 jrpennin@calpoly.edu, Pilipino Cultural Exchange
 jkim417@calpoly.edu, Korean American Student Association
 Kkmikami@calpoly.edu, Korean American Student Association
@@ -270,7 +270,7 @@ ohamuy@calpoly.edu, Nu Alpha Kappa
 omercede@calpoly.edu, Chinese Student Association
 oorivera@calpoly.edu, Chinese Student Association
 pgonza25@calpoly.edu, Society of Hispanic Professional Engineers
-pwpulido@calpoly.edu, Hispanic Business Student Association
+pwpulido@calpoly.edu, Hip Hop Choreo Club
 pamelaarciniega5@yahoo.com, Chinese Student Association
 pakuo@calpoly.edu, Omega Xi Delta
 pwilli17@calpoly.edu, Korean American Student Association
@@ -344,3 +344,5 @@ ytaddeo, SLO Breakers
 ymacias81@gmail.com, Lambda Sigma Gamma
 zregner@calpoly.edu, Pilipino Cultural Exchange
 zcohen04@calpoly.edu, Pilipino Cultural Exchange
+xavieryu31@gmail.com, Japanese Student Association
+aksawhney@mcdogh.org, Latinos in Agriculture

@@ -229,7 +229,7 @@ public class Quickstart {
             // file to write to
             File file = new File("/Users/jessietrieu/repos/PCW_APP_2018/Sheets_Java/data/Sheet2.txt");
             PrintWriter printWriter = null;
-            int i = 0;
+            //int i = 0;
             try {
                 // establish database connection and statements/prepared statements/results
                 cnc = DriverManager.getConnection("jdbc:mysql://wf-207-38-86-69.webfaction.com/pcw_app?serverTimezone=America/Los_Angeles", "pcw", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
@@ -242,7 +242,7 @@ public class Quickstart {
                 String pst = "select * from PCW_APP_profile p, auth_user au where au.id = p.user_id and ? = au.email";
                 String update = "update PCW_APP_profile set signed_in = 1 where user_id = ?";
 
-                while(i < 2) {
+                while(true//i < 2) {
                     printWriter = new PrintWriter(file);
                     if (values == null || values.size() == 0) {
                        printWriter.println("No data found.");
@@ -294,7 +294,7 @@ public class Quickstart {
                     // 2 second delay
                     Thread.sleep(2000);
                     System.out.println("Testing..." + new Date());
-                    i++;
+                    //i++;
                 }
             }
             catch (SQLException e) {
