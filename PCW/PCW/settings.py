@@ -24,8 +24,9 @@ SECRET_KEY = '4$87)*un7l4nd3jodt@8knfr1_c%aj+&80ur&#hsylmx+p!iuq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SITE_ID = 2
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'cpescalpoly.webfactional.com', 'calpolycpes.com',]
 
 LOGIN_REDIRECT_URL = 'home'
 
@@ -87,9 +88,17 @@ WSGI_APPLICATION = 'PCW.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PCW_APP',                  
-        'USER': 'PCW',             
+        'NAME': 'pcw_app',                  
+        'USER': 'pcw',
         'PASSWORD': 'Pcw2018!!!!!',
+	'HOST': '',
+	'PORT': '',
+        'OPTIONS': {
+            'init_command': 'SET storage_engine=INNODB',
+        }
+	
+	
+             
     }
 }
 
@@ -115,6 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
 #Cookies
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
+#Default
+DEFAULT_FROM_EMAIL = 'no-reply@calpolycpes.com'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -132,6 +144,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'http://calpolycpes.com/static/'
+STATIC_ROOT =  '/home/cpescalpoly/webapps/static_media_final/'
 
-SITE_ID = 1
