@@ -126,9 +126,9 @@ public class Quickstart {
             Sheets service = getSheetsService();
 
             /* set up data pull from google sheet ( QR Code Generator )
-             * link : https://docs.google.com/spreadsheets/d/1S2yF4qEinMXgbFFOOI4g5e3s_O6msvr6PWOO8SOXdwk/edit#gid=0
+             * link : https://docs.google.com/spreadsheets/d/1_aJY0elhyylkqDlHWwDJbWQkrXzs5crQ-YXnvxT-97Y/edit#gid=0
              */
-            String spreadsheetId = "1S2yF4qEinMXgbFFOOI4g5e3s_O6msvr6PWOO8SOXdwk";
+            String spreadsheetId = "1_aJY0elhyylkqDlHWwDJbWQkrXzs5crQ-YXnvxT-97Y";
             String range = "Sheet1!C2:G";
 
             ValueRange response = service.spreadsheets().values()
@@ -143,25 +143,26 @@ public class Quickstart {
             
             try {
                 // establish database connection and statements/prepared statements/results
-                cnc = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
+                cnc = DriverManager.getConnection("jdbc:mysql://wf-207-38-86-69.webfaction.com/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
                 PreparedStatement ps = null;
                 PreparedStatement upd = null;
                 ResultSet res1 = null;
                 String st = "select id from auth_user where email = ?";
-                String update = "update PCW_APP_profile set qr_code = ? where user_id = ?";
+                String update = "update PCW_APP_profile set qr_code = ?, Organization = ?, hostee = ? where user_id = ?";
 
                 printWriter = new PrintWriter(file);
                 if (values == null || values.size() == 0) {
                    printWriter.println("No data found.");
                 } else {
-                   printWriter.print("Email, QR Code Link\n");
+                   printWriter.print("Email, Org, QR Code Link\n");
                     /* 
-                       Print columns C and G, which correspond to indices 0 and 4.
+                       Print columns C, D and G, which correspond to indices 0, 1 and 4.
                        Pull Initial Email and QR Code and insert into DB
                     */ 
                    for (List row : values) { 
-                        printWriter.printf("%s, %s\n", row.get(0), row.get(4));
+                        printWriter.printf("%s, %s\n", row.get(0), row.get(1), row.get(4));
                         String email = row.get(0).toString();
+                        String org = row.get(1).toString();
                         String code = row.get(4).toString();
                         ps = cnc.prepareStatement(st);
                         ps.setString(1,email);
@@ -169,8 +170,10 @@ public class Quickstart {
                         while( res1.next() ) {
                             upd = cnc.prepareStatement(update);
                             upd.setString(1, code);
+                            upd.setString(2, org);
+                            upd.setInt(3, 1);
                             int id = res1.getInt("id");
-                            upd.setInt(2, id);
+                            upd.setInt(4, id);
                             upd.executeUpdate();
                         }
                     }
@@ -212,10 +215,10 @@ public class Quickstart {
             Sheets service = getSheetsService();
 
             /* set up data pull from google sheet ( PCW2018 Form )
-             * link : https://docs.google.com/spreadsheets/d/1cgN8kAuWosIRPfvAduCtJCjZx8VECPeo241SlCsUvhk/edit#gid=570217724
+             * link : https://docs.google.com/spreadsheets/d/1L2fYLcD6bw5SS04khckeDATUPPqKRIJwOMEYrfQa1WU/edit#gid=1987675620
              */
-            String spreadsheetId = "1cgN8kAuWosIRPfvAduCtJCjZx8VECPeo241SlCsUvhk";
-            String range = "Form Responses 1!A2:D";
+            String spreadsheetId = "1L2fYLcD6bw5SS04khckeDATUPPqKRIJwOMEYrfQa1WU";
+            String range = "Form Responses 1!A2:E";
 
             ValueRange response = service.spreadsheets().values()
                 .get(spreadsheetId, range)
@@ -229,7 +232,7 @@ public class Quickstart {
             int i = 0;
             try {
                 // establish database connection and statements/prepared statements/results
-                cnc = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
+                cnc = DriverManager.getConnection("jdbc:mysql://wf-207-38-86-69.webfaction.com/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
                 PreparedStatement ps = null;
                 ResultSet res1 = null;
                 ResultSet res2 = null;
@@ -248,7 +251,7 @@ public class Quickstart {
 
                         /* 
                            Filter out pulled date to match start and end time
-                           Print columns A and D, which correspond to indices 0 and 3. ( Timestamp & Email )
+                           Print columns B and E, which correspond to indices 1 and 4. ( Formatted Timestamp & Email )
                         */
                        for (List row : values) { 
                           stmt = cnc.createStatement();
@@ -264,12 +267,12 @@ public class Quickstart {
 
                             Timestamp start = Timestamp.valueOf(sdf.format(res1.getTimestamp("startTime")));
                             Timestamp end = Timestamp.valueOf(sdf.format(res1.getTimestamp("endTime")));
-                            Timestamp dt = Timestamp.valueOf(row.get(0).toString());
+                            Timestamp dt = Timestamp.valueOf(row.get(1).toString());
             
                             if( dt.before(end) && dt.after(start) ) {
-                                checkedRows.add(row.get(3).toString());
+                                checkedRows.add(row.get(4).toString());
                                 System.out.println("First filter");
-                                printWriter.printf("%s, %s\n", row.get(0), row.get(3));
+                                printWriter.printf("%s, %s\n", row.get(1), row.get(4));
                             }
                           }
                        }
