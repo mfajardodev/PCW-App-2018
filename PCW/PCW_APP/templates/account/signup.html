@@ -63,15 +63,9 @@
                     </div>
                 {% endfor %}
             <button type="submit" class="center btn btn-primary">Sign Up</button>
+            <button class="center btn btn-primary" onclick="location.href = '{% url 'login' %}'"/>Back</button>
         </form>
     </div> <!-- close Signup Schedule Table  -->
-
-    <!-- Day Navigation Bar -->
-    <ul class="nav nav-pills">
-        <li class="nav-item account-creation">
-            <a data-toggle="tab" class="nav-link" onclick="location.href = '{% url 'login' %}'"/>Back</a>
-        </li>
-    </ul>
 
     <!-- Dependencies for Bootstrap Material Design -->
     <!-- jQuery first, then tether, then Bootstrap Material Design JS. -->
