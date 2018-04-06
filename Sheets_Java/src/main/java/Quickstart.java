@@ -148,7 +148,7 @@ public class Quickstart {
                 PreparedStatement upd = null;
                 ResultSet res1 = null;
                 String st = "select id from auth_user where email = ?";
-                String update = "update PCW_APP_profile set QR_code = ?, Organization = ? where user_id = ?"; //add hostee = ?
+                String update = "update PCW_APP_profile set QR_code = ?, Organization = ?, hostee = ? where user_id = ?"; //add hostee = ?
 
                 printWriter = new PrintWriter(file);
                 if (values == null || values.size() == 0) {
@@ -171,9 +171,9 @@ public class Quickstart {
                             upd = cnc.prepareStatement(update);
                             upd.setString(1, code);
                             upd.setString(2, org);
-                            //upd.setInt(3, 1);
+                            upd.setInt(3, 1);
                             int id = res1.getInt("id");
-                            upd.setInt(3, id); //4
+                            upd.setInt(4, id);
                             upd.executeUpdate();
                         }
                     }
