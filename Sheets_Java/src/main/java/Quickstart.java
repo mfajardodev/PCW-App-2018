@@ -143,7 +143,7 @@ public class Quickstart {
             
             try {
                 // establish database connection and statements/prepared statements/results
-                cnc = DriverManager.getConnection("jdbc:mysql://wf-207-38-86-69.webfaction.com/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
+                cnc = DriverManager.getConnection("jdbc:mysql://wf-207-38-86-69.webfaction.com/pcw_app?serverTimezone=America/Los_Angeles", "pcw", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
                 PreparedStatement ps = null;
                 PreparedStatement upd = null;
                 ResultSet res1 = null;
@@ -232,7 +232,7 @@ public class Quickstart {
             int i = 0;
             try {
                 // establish database connection and statements/prepared statements/results
-                cnc = DriverManager.getConnection("jdbc:mysql://wf-207-38-86-69.webfaction.com/PCW_APP?serverTimezone=America/Los_Angeles", "PCW", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
+                cnc = DriverManager.getConnection("jdbc:mysql://wf-207-38-86-69.webfaction.com/pcw_app?serverTimezone=America/Los_Angeles", "pcw", "Pcw2018!!!!!"); //?autoReconnect=true&useSSL=false
                 PreparedStatement ps = null;
                 ResultSet res1 = null;
                 ResultSet res2 = null;
