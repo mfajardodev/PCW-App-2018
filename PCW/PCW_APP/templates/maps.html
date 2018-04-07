@@ -85,7 +85,6 @@
         });
 
         {% for event in Events %}
-        {print(event)}
           marker = new google.maps.Marker({
             position: new google.maps.LatLng({{event.lat}}, {{event.lng}}),
             map: map

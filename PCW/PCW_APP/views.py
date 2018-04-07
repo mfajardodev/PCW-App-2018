@@ -65,7 +65,169 @@ def signup(request):
 @login_required(login_url='/')
 def home(request):
     if (request.user.is_staff):
-        return render(request, 'data.html')
+        akdp = Profile.objects.filter(Organization = "alpha Kappa Delta Phi")
+        akdp_in = list(akdp.filter(hostee=1).filter(signed_in=1))
+        akdp_out = list(akdp.filter(hostee=1).filter(signed_in=0))
+
+        bsu = Profile.objects.filter(Organization = "Black Student Union")
+        bsu_in = list(bsu.filter(hostee=1).filter(signed_in=1))
+        bsu_out = list(bsu.filter(hostee=1).filter(signed_in=0))
+
+        cdt = Profile.objects.filter(Organization = "Chi Delta Theta")
+        cdt_in = list(cdt.filter(hostee=1).filter(signed_in=1))
+        cdt_out = list(cdt.filter(hostee=1).filter(signed_in=0))
+
+        ccf = Profile.objects.filter(Organization = "Chinese Christian Fellowship")
+        ccf_in = list(akdp.filter(hostee=1).filter(signed_in=1))
+        ccf_out = list(akdp.filter(hostee=1).filter(signed_in=0))
+
+        ccc = Profile.objects.filter(Organization = "Chinese Cultural Club")
+        ccc_in = list(ccc.filter(hostee=1).filter(signed_in=1))
+        ccc_out = list(ccc.filter(hostee=1).filter(signed_in=0))
+
+        csa = Profile.objects.filter(Organization = "Chinese Student Association")
+        csa_in = list(csa.filter(hostee=1).filter(signed_in=1))
+        csa_out = list(csa.filter(hostee=1).filter(signed_in=0))
+
+        gza = Profile.objects.filter(Organization = "Gamma Zeta Alpha")
+        gza_in = list(gza.filter(hostee=1).filter(signed_in=1))
+        gza_out = list(gza.filter(hostee=1).filter(signed_in=0))
+
+        hhcc = Profile.objects.filter(Organization = "Hip Hop Choreo Club")
+        hhcc_in = list(hhcc.filter(hostee=1).filter(signed_in=1))
+        hhcc_out = list(hhcc.filter(hostee=1).filter(signed_in=0))
+
+        hsba = Profile.objects.filter(Organization = "Hispanic Business Student Association")
+        hsba_in = list(hsba.filter(hostee=1).filter(signed_in=1))
+        hsba_out = list(hsba.filter(hostee=1).filter(signed_in=0))
+
+        imagen = Profile.objects.filter(Organization = "Imagen Y Espiritu Ballet Folklorico")
+        imagen_in = list(imagen.filter(hostee=1).filter(signed_in=1))
+        imagen_out = list(imagen.filter(hostee=1).filter(signed_in=0))
+
+        jsa = Profile.objects.filter(Organization = "Japanese Student Association")
+        jsa_in = list(jsa.filter(hostee=1).filter(signed_in=1))
+        jsa_out = list(jsa.filter(hostee=1).filter(signed_in=0))
+
+        kasa = Profile.objects.filter(Organization = "Korean American Student Association")
+        kasa_in = list(kasa.filter(hostee=1).filter(signed_in=1))
+        kasa_out = list(kasa.filter(hostee=1).filter(signed_in=0))
+
+        lpe = Profile.objects.filter(Organization = "Lambda Phi Epsilon")
+        lpe_in = list(lpe.filter(hostee=1).filter(signed_in=1))
+        lpe_out = list(lpe.filter(hostee=1).filter(signed_in=0))
+
+        lsg = Profile.objects.filter(Organization = "Lambda Sigma Gamma")
+        lsg_in = list(lsg.filter(hostee=1).filter(signed_in=1))
+        lsg_out = list(lsg.filter(hostee=1).filter(signed_in=0))
+
+        ltn = Profile.objects.filter(Organization = "Lambda Theta Nu")
+        ltn_in = list(akdp.filter(hostee=1).filter(signed_in=1))
+        ltn_out = list(akdp.filter(hostee=1).filter(signed_in=0))
+
+        lia = Profile.objects.filter(Organization = "Latinos in Agriculture")
+        lia_in = list(lia.filter(hostee=1).filter(signed_in=1))
+        lia_out = list(lia.filter(hostee=1).filter(signed_in=0))
+
+        mexa = Profile.objects.filter(Organization = "Movimiento Estudiantil Xicano de Azatlan")
+        mexa_in = list(mexa.filter(hostee=1).filter(signed_in=1))
+        mexa_out = list(mexa.filter(hostee=1).filter(signed_in=0))
+
+        nsbe = Profile.objects.filter(Organization = "National Society of Black Engineers")
+        nsbe_in = list(nsbe.filter(hostee=1).filter(signed_in=1))
+        nsbe_out = list(nsbe.filter(hostee=1).filter(signed_in=0))
+
+        nak = Profile.objects.filter(Organization = "Nu Alpha Kappa")
+        nak_in = list(nak.filter(hostee=1).filter(signed_in=1))
+        nak_out = list(nak.filter(hostee=1).filter(signed_in=0))
+
+        oxd = Profile.objects.filter(Organization = "Omega Xi Delta")
+        oxd_in = list(oxd.filter(hostee=1).filter(signed_in=1))
+        oxd_out = list(oxd.filter(hostee=1).filter(signed_in=0))
+
+        pce = Profile.objects.filter(Organization = "Pilipino Cultural Exchange")
+        pce_in = list(pce.filter(hostee=1).filter(signed_in=1))
+        pce_out = list(pce.filter(hostee=1).filter(signed_in=0))
+
+        qtpc = Profile.objects.filter(Organization = "Queer and Trans People of Color")
+        qtpc_in = list(qtpc.filter(hostee=1).filter(signed_in=1))
+        qtpc_out = list(qtpc.filter(hostee=1).filter(signed_in=0))
+
+        son = Profile.objects.filter(Organization = "Sigma Omega Nu")
+        son_in = list(son.filter(hostee=1).filter(signed_in=1))
+        son_out = list(son.filter(hostee=1).filter(signed_in=0))
+
+        slo = Profile.objects.filter(Organization = "SLO Breakers")
+        slo_in = list(slo.filter(hostee=1).filter(signed_in=1))
+        slo_out = list(slo.filter(hostee=1).filter(signed_in=0))
+
+        shpe = Profile.objects.filter(Organization = "Society of Hispanic Professional Engineers")
+        shpe_in = list(shpe.filter(hostee=1).filter(signed_in=1))
+        shpe_out = list(shpe.filter(hostee=1).filter(signed_in=0))
+
+        tvsa = Profile.objects.filter(Organization = "Thai Vietnamese Student Association")
+        tvsa_in = list(tvsa.filter(hostee=1).filter(signed_in=1))
+        tvsa_out = list(tvsa.filter(hostee=1).filter(signed_in=0))
+
+        all_in = list(Profile.objects.filter(hostee=1).filter(signed_in=1))
+        all_out = list(Profile.objects.filter(hostee=1).filter(signed_in=0))
+
+        return render(request, 'data.html', {
+            "akdp_in" : len(akdp_in),
+            "akdp_out" : len(akdp_out),
+            "bsu_in" : len(bsu_in),
+            "bsu_out" : len(bsu_out),
+            "cdt_in" : len(cdt_in),
+            "cdt_out" : len(cdt_out),
+            "ccf_in" : len(ccf_in),
+            "ccf_out" : len(ccf_out),
+            "ccc_in" : len(ccc_in),
+            "ccc_out" : len(ccc_out),
+            "csa_in" : len(csa_in),
+            "csa_out" : len(csa_out),
+            "gza_in" : len(gza_in),
+            "gza_out" : len(gza_out),
+            "hhcc_in" : len(hhcc_in),
+            "hhcc_out" : len(hhcc_out),
+            "hsba_in" : len(hsba_in),
+            "hsba_out" : len(hsba_out),
+            "imagen_in" : len(imagen_in),
+            "imagen_out" : len(imagen_out),
+            "jsa_in" : len(jsa_in),
+            "jsa_out" : len(jsa_out),
+            "kasa_in" : len(kasa_in),
+            "kasa_out" : len(kasa_out),
+            "lpe_in" : len(lpe_in),
+            "lpe_out" : len(lpe_out),
+            "lsg_in" : len(lsg_in),
+            "lsg_out" : len(lsg_out),
+            "ltn_in" : len(ltn_in),
+            "ltn_out" : len(ltn_out),
+            "lia_in" : len(lia_in),
+            "lia_out" : len(lia_out),
+            "mexa_in" : len(mexa_in),
+            "mexa_out" : len(mexa_out),
+            "nsbe_in" : len(nsbe_in),
+            "nsbe_out" : len(nsbe_out),
+            "nak_out" : len(nak_out),
+            "nak_in" : len(nak_in),
+            "oxd_in" : len(oxd_in),
+            "oxd_out" : len(oxd_out),
+            "pce_in" : len(pce_in),
+            "pce_out" : len(pce_out),
+            "qtpc_in" : len(qtpc_in),
+            "qtpc_out" : len(qtpc_out),
+            "son_in" : len(son_in),
+            "son_out" : len(son_out),
+            "slo_in" : len(slo_in),
+            "slo_out" : len(slo_out),
+            "shpe_in" : len(shpe_in),
+            "shpe_out" : len(shpe_out),
+            "tvsa_in" : len(tvsa_in),
+            "tvsa_out" : len(tvsa_out),
+            "all_in" : len(all_in),
+            "all_out" : len(all_out),
+            })
     else: 
         events = list(Events.objects.all())
         for event in events:
@@ -75,171 +237,175 @@ def home(request):
 
 @staff_required(login_url='/')
 def data(request):
-    akdp = Profile.objects.get(Organization = "alpha Kappa Delta Phi")
+    akdp = Profile.objects.filter(Organization = "alpha Kappa Delta Phi")
     akdp_in = list(akdp.filter(hostee=1).filter(signed_in=1))
     akdp_out = list(akdp.filter(hostee=1).filter(signed_in=0))
 
-    bsu = Profile.objects.get(Organization = "Black Student Union")
+    bsu = Profile.objects.filter(Organization = "Black Student Union")
     bsu_in = list(bsu.filter(hostee=1).filter(signed_in=1))
     bsu_out = list(bsu.filter(hostee=1).filter(signed_in=0))
 
-    cdt = Profile.objects.get(Organization = "Chi Delta Theta")
+    cdt = Profile.objects.filter(Organization = "Chi Delta Theta")
     cdt_in = list(cdt.filter(hostee=1).filter(signed_in=1))
     cdt_out = list(cdt.filter(hostee=1).filter(signed_in=0))
 
-    ccf = Profile.objects.get(Organization = "Chinese Christian Fellowship")
+    ccf = Profile.objects.filter(Organization = "Chinese Christian Fellowship")
     ccf_in = list(akdp.filter(hostee=1).filter(signed_in=1))
     ccf_out = list(akdp.filter(hostee=1).filter(signed_in=0))
 
-    ccc = Profile.objects.get(Organization = "Chinese Cultural Club")
+    ccc = Profile.objects.filter(Organization = "Chinese Cultural Club")
     ccc_in = list(ccc.filter(hostee=1).filter(signed_in=1))
     ccc_out = list(ccc.filter(hostee=1).filter(signed_in=0))
 
-    csa = Profile.objects.get(Organization = "Chinese Student Association")
+    csa = Profile.objects.filter(Organization = "Chinese Student Association")
     csa_in = list(csa.filter(hostee=1).filter(signed_in=1))
     csa_out = list(csa.filter(hostee=1).filter(signed_in=0))
 
-    gza = Profile.objects.get(Organization = "Gamma Zeta Alpha")
+    gza = Profile.objects.filter(Organization = "Gamma Zeta Alpha")
     gza_in = list(gza.filter(hostee=1).filter(signed_in=1))
     gza_out = list(gza.filter(hostee=1).filter(signed_in=0))
 
-    hhcc = Profile.objects.get(Organization = "Hip Hop Choreo Club")
+    hhcc = Profile.objects.filter(Organization = "Hip Hop Choreo Club")
     hhcc_in = list(hhcc.filter(hostee=1).filter(signed_in=1))
     hhcc_out = list(hhcc.filter(hostee=1).filter(signed_in=0))
 
-    hsba = Profile.objects.get(Organization = "Hispanic Business Student Association")
+    hsba = Profile.objects.filter(Organization = "Hispanic Business Student Association")
     hsba_in = list(hsba.filter(hostee=1).filter(signed_in=1))
     hsba_out = list(hsba.filter(hostee=1).filter(signed_in=0))
 
-    imagen = Profile.objects.get(Organization = "Imagen Y Espiritu Ballet Folklorico")
+    imagen = Profile.objects.filter(Organization = "Imagen Y Espiritu Ballet Folklorico")
     imagen_in = list(imagen.filter(hostee=1).filter(signed_in=1))
     imagen_out = list(imagen.filter(hostee=1).filter(signed_in=0))
 
-    jsa = Profile.objects.get(Organization = "Japanese Student Association")
+    jsa = Profile.objects.filter(Organization = "Japanese Student Association")
     jsa_in = list(jsa.filter(hostee=1).filter(signed_in=1))
     jsa_out = list(jsa.filter(hostee=1).filter(signed_in=0))
 
-    kasa = Profile.objects.get(Organization = "Korean American Student Association")
+    kasa = Profile.objects.filter(Organization = "Korean American Student Association")
     kasa_in = list(kasa.filter(hostee=1).filter(signed_in=1))
     kasa_out = list(kasa.filter(hostee=1).filter(signed_in=0))
 
-    lpe = Profile.objects.get(Organization = "Lambda Phi Epsilon")
+    lpe = Profile.objects.filter(Organization = "Lambda Phi Epsilon")
     lpe_in = list(lpe.filter(hostee=1).filter(signed_in=1))
     lpe_out = list(lpe.filter(hostee=1).filter(signed_in=0))
 
-    lsg = Profile.objects.get(Organization = "Lambda Sigma Gamma")
+    lsg = Profile.objects.filter(Organization = "Lambda Sigma Gamma")
     lsg_in = list(lsg.filter(hostee=1).filter(signed_in=1))
     lsg_out = list(lsg.filter(hostee=1).filter(signed_in=0))
 
-    ltn = Profile.objects.get(Organization = "Lambda Theta Nu")
+    ltn = Profile.objects.filter(Organization = "Lambda Theta Nu")
     ltn_in = list(akdp.filter(hostee=1).filter(signed_in=1))
     ltn_out = list(akdp.filter(hostee=1).filter(signed_in=0))
 
-    lia = Profile.objects.get(Organization = "Latinos in Agriculture")
+    lia = Profile.objects.filter(Organization = "Latinos in Agriculture")
     lia_in = list(lia.filter(hostee=1).filter(signed_in=1))
     lia_out = list(lia.filter(hostee=1).filter(signed_in=0))
 
-    mexa = Profile.objects.get(Organization = "Movimiento Estudiantil Xicano de Azatlan")
+    mexa = Profile.objects.filter(Organization = "Movimiento Estudiantil Xicano de Azatlan")
     mexa_in = list(mexa.filter(hostee=1).filter(signed_in=1))
     mexa_out = list(mexa.filter(hostee=1).filter(signed_in=0))
 
-    nsbe = Profile.objects.get(Organization = "National Society of Black Engineers")
+    nsbe = Profile.objects.filter(Organization = "National Society of Black Engineers")
     nsbe_in = list(nsbe.filter(hostee=1).filter(signed_in=1))
     nsbe_out = list(nsbe.filter(hostee=1).filter(signed_in=0))
 
-    nak = Profile.objects.get(Organization = "Nu Alpha Kappa")
+    nak = Profile.objects.filter(Organization = "Nu Alpha Kappa")
     nak_in = list(nak.filter(hostee=1).filter(signed_in=1))
     nak_out = list(nak.filter(hostee=1).filter(signed_in=0))
 
-    oxd = Profile.objects.get(Organization = "Omega Xi Delta")
+    oxd = Profile.objects.filter(Organization = "Omega Xi Delta")
     oxd_in = list(oxd.filter(hostee=1).filter(signed_in=1))
     oxd_out = list(oxd.filter(hostee=1).filter(signed_in=0))
 
-    pce = Profile.objects.get(Organization = "Pilipino Cultural Exchange")
+    pce = Profile.objects.filter(Organization = "Pilipino Cultural Exchange")
     pce_in = list(pce.filter(hostee=1).filter(signed_in=1))
     pce_out = list(pce.filter(hostee=1).filter(signed_in=0))
 
-    qtpc = Profile.objects.get(Organization = "Queer and Trans People of Color")
+    qtpc = Profile.objects.filter(Organization = "Queer and Trans People of Color")
     qtpc_in = list(qtpc.filter(hostee=1).filter(signed_in=1))
     qtpc_out = list(qtpc.filter(hostee=1).filter(signed_in=0))
 
-    son = Profile.objects.get(Organization = "Sigma Omega Nu")
+    son = Profile.objects.filter(Organization = "Sigma Omega Nu")
     son_in = list(son.filter(hostee=1).filter(signed_in=1))
     son_out = list(son.filter(hostee=1).filter(signed_in=0))
 
-    slo = Profile.objects.get(Organization = "SLO Breakers")
+    slo = Profile.objects.filter(Organization = "SLO Breakers")
     slo_in = list(slo.filter(hostee=1).filter(signed_in=1))
     slo_out = list(slo.filter(hostee=1).filter(signed_in=0))
 
-    shpe = Profile.objects.get(Organization = "Society of Hispanic Professional Engineers")
+    shpe = Profile.objects.filter(Organization = "Society of Hispanic Professional Engineers")
     shpe_in = list(shpe.filter(hostee=1).filter(signed_in=1))
     shpe_out = list(shpe.filter(hostee=1).filter(signed_in=0))
 
-    tvsa = Profile.objects.get(Organization = "Thai Vietnamese Student Association")
+    tvsa = Profile.objects.filter(Organization = "Thai Vietnamese Student Association")
     tvsa_in = list(tvsa.filter(hostee=1).filter(signed_in=1))
     tvsa_out = list(tvsa.filter(hostee=1).filter(signed_in=0))
 
-    return render(request, 'data.html', {
-        "akdp_in" : akdp_in,
-        "akdp_out" : akdp_out,
-        "bsu_in" : bsu_in,
-        "bsu_out" : bsu_out,
-        "cdt_in" : cdt_in,
-        "cdt_out" : cdt_out,
-        "ccf_in" : ccf_in,
-        "ccf_out" : ccf_out,
-        "ccc_in" : ccc_in,
-        "ccc_out" : ccc_out,
-        "csa_in" : csa_in,
-        "csa_in" : csa_in,
-        "gza_in" : gza_in,
-        "gza_out" : gza_out,
-        "hhcc_in" : hhcc_in,
-        "hhcc_out" : hhcc_out,
-        "hsba_in" : hsba_in,
-        "hsba_out" : hsba_out,
-        "imagen_in" : imagen_in,
-        "imagen_out" : imagen_out,
-        "jsa_in" : jsa_in,
-        "jsa_out" : jsa_out,
-        "kasa_in" : kasa_in,
-        "kasa_out" : kasa_out,
-        "lpe_in" : lpe_in,
-        "lpe_out" : lpe_out,
-        "lsg_in" : lsg_in,
-        "lsg_out" : lsg_out,
-        "ltn_in" : ltn_in,
-        "ltn_out" : ltn_out,
-        "lia_in" : lia_in,
-        "lia_out" : lia_out,
-        "mexa_in" : mexa_in,
-        "mexa_out" : mexa_out,
-        "nsbe_in" : nsbe_in,
-        "nsbe_out" : nsbe_out,
-        "nak_out" : nak_out,
-        "nak_in" : nak_in,
-        "oxd_in" : oxd_in,
-        "oxd_out" : oxd_out,
-        "pce_in" : pce_in,
-        "pce_out" : pce_out,
-        "qtpc_in" : qtpc_in,
-        "qtpc_out" : qtpc_out,
-        "son_in" : son_in,
-        "son_out" : son_out,
-        "slo_in" : slo_in,
-        "slo_out" : slo_out,
-        "shpe_in" : shpe_in,
-        "shpe_out" : shpe_out,
-        "tvsa_in" : tvsa_in,
-        "tvsa_out" : tvsa_out,
+    all_in = list(Profile.objects.filter(hostee=1).filter(signed_in=1))
+    all_out = list(Profile.objects.filter(hostee=1).filter(signed_in=0))
 
+    return render(request, 'data.html', {
+        "akdp_in" : len(akdp_in),
+        "akdp_out" : len(akdp_out),
+        "bsu_in" : len(bsu_in),
+        "bsu_out" : len(bsu_out),
+        "cdt_in" : len(cdt_in),
+        "cdt_out" : len(cdt_out),
+        "ccf_in" : len(ccf_in),
+        "ccf_out" : len(ccf_out),
+        "ccc_in" : len(ccc_in),
+        "ccc_out" : len(ccc_out),
+        "csa_in" : len(csa_in),
+        "csa_out" : len(csa_out),
+        "gza_in" : len(gza_in),
+        "gza_out" : len(gza_out),
+        "hhcc_in" : len(hhcc_in),
+        "hhcc_out" : len(hhcc_out),
+        "hsba_in" : len(hsba_in),
+        "hsba_out" : len(hsba_out),
+        "imagen_in" : len(imagen_in),
+        "imagen_out" : len(imagen_out),
+        "jsa_in" : len(jsa_in),
+        "jsa_out" : len(jsa_out),
+        "kasa_in" : len(kasa_in),
+        "kasa_out" : len(kasa_out),
+        "lpe_in" : len(lpe_in),
+        "lpe_out" : len(lpe_out),
+        "lsg_in" : len(lsg_in),
+        "lsg_out" : len(lsg_out),
+        "ltn_in" : len(ltn_in),
+        "ltn_out" : len(ltn_out),
+        "lia_in" : len(lia_in),
+        "lia_out" : len(lia_out),
+        "mexa_in" : len(mexa_in),
+        "mexa_out" : len(mexa_out),
+        "nsbe_in" : len(nsbe_in),
+        "nsbe_out" : len(nsbe_out),
+        "nak_out" : len(nak_out),
+        "nak_in" : len(nak_in),
+        "oxd_in" : len(oxd_in),
+        "oxd_out" : len(oxd_out),
+        "pce_in" : len(pce_in),
+        "pce_out" : len(pce_out),
+        "qtpc_in" : len(qtpc_in),
+        "qtpc_out" : len(qtpc_out),
+        "son_in" : len(son_in),
+        "son_out" : len(son_out),
+        "slo_in" : len(slo_in),
+        "slo_out" : len(slo_out),
+        "shpe_in" : len(shpe_in),
+        "shpe_out" : len(shpe_out),
+        "tvsa_in" : len(tvsa_in),
+        "tvsa_out" : len(tvsa_out),
+        "all_in" : len(all_in),
+        "all_out" : len(all_out),
         })
 
 @login_required(login_url='/')
 def maps(request):
-    events = Events.objects.all()
+    events = list(Events.objects.all().exclude(lat=0))
     print(events)
-    return render(request, 'maps.html', {Events: events})
+    return render(request, 'maps.html', {"Events": events})
 
 @login_required(login_url='/')
 def pamphlet(request):
@@ -247,7 +413,15 @@ def pamphlet(request):
 
 @login_required(login_url='/')
 def schedule(request):
-    return render(request, 'schedule.html')
+    friday = list(Events.objects.filter(day="Friday"))
+    saturday = list(Events.objects.filter(day="Saturday"))
+    sunday = list(Events.objects.filter(day="Sunday"))
+    return render(request, 'schedule.html', {
+        "friday": friday,
+        "saturday": saturday,
+        "sunday": sunday,
+
+        })
 
 @login_required(login_url='/')
 def profile(request):
