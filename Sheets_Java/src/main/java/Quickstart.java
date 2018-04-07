@@ -242,7 +242,7 @@ public class Quickstart {
                 String pst = "select * from PCW_APP_profile p, auth_user au where au.id = p.user_id and ? = au.email";
                 String update = "update PCW_APP_profile set signed_in = 1 where user_id = ?";
 
-                while(true//i < 2) {
+                while(true) {//i < 2) {
                     printWriter = new PrintWriter(file);
                     if (values == null || values.size() == 0) {
                        printWriter.println("No data found.");
