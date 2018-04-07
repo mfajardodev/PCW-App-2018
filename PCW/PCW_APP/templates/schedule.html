@@ -73,13 +73,15 @@
           </thead>
           <tbody>
 	  {% for event in events %}
+      {% if event.day == 'Friday'}
             <tr>
               <td>{{event.title}}</td>
               <td>{{event.location}}</td>
               <td>{{event.startTime}}</td>
-	      <td>{{event.endTime}}</td>
+	            <td>{{event.endTime}}</td>
             </tr>
-          {% endfor %} 
+      {% endif %}
+    {% endfor %} 
           </tbody>
         </table>
       </div><!-- Close Friday Schedule Table -->
@@ -98,13 +100,15 @@
           </thead>
           <tbody>
             {% for event in events %}
+            {% if event.day == 'Saturday'}
             <tr>
               <td>{{event.title}}</td>
               <td>{{event.location}}</td>
               <td>{{event.startTime}}</td>
               <td>{{event.endTime}}</td>
             </tr>
-          {% endfor %} 
+            {% endif %}
+            {% endfor %} 
           </tbody>
         </table>
       </div> <!-- close Saturday Schedule Table  -->
@@ -123,12 +127,14 @@
           </thead>
           <tbody>
           {% for event in events %}
+          {% if event.day == 'Sunday'}
             <tr>
               <td>{{event.title}}</td>
               <td>{{event.location}}</td>
               <td>{{event.startTime}}</td>
               <td>{{event.endTime}}</td>
             </tr>
+          {% endif %}
           {% endfor %} 
           </tbody>
         </table>

@@ -68,8 +68,8 @@
           var orgChart = new Chart(org_ctx, {
               type: 'horizontalBar',
               data: {
-                labels: ["aKDPhi", "BSU", "CCC", "CCF", "Chi Delta Theta",
-                                 "CSA", "Gamma Zeta Alpha", "HBSA", "HHCC", "Imagen", "JSA",
+                labels: ["aKDPhi", "BSU", "Chi Delta Theta", "CCF", "CCC",
+                                 "CSA", "Gamma Zeta Alpha", "HHCC", "HBSA", "Imagen", "JSA",
                                  "KASA", "Lambda Phi Epsilon", "Lambda Sigma Gamma", 
                                  "Lambda Theta Nu", "Latinos in Ag", "MEXA", "NAK", "NSBE",
                                  "Omega Xi Delta", "PCE", "QTPOC", "SHPE", "Sigma Omega Nu",
@@ -77,21 +77,19 @@
                 datasets: [{
                     label: 'Signed In',
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    data: [12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12]
+                    data: [{{akdp_in}}, {{bsu_in}}, {{cdt_in}}, {{ccf_in}}, {{ccc_in}},
+                          {{csa_in}}, {{gza_in}}, {{hhcc_in}}, {{hsba_in}}, {{imagen_in}}, {{jsa_in}},
+                           {{kasa_in}}, {{lpe_in}}, {{lsg_in}}, {{ltn_in}}, {{lia_in}},
+                           {{mexa_in}}, {{nsbe_in}}, {{nak_in}}, {{oxd_in}}, {{pce_in}},
+                           {{qtpc_in}}, {{son_in}}, {{slo_in}}, {{shpe_in}}, {{tvsa_in}}]
                 }, {
                     label: 'Not Signed In',
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    data: [12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12, 19, 3, 5, 2,
-                           12]
+                    data: [{{akdp_out}}, {{bsu_out}}, {{cdt_out}}, {{ccf_out}}, {{ccc_out}},
+                          {{csa_out}}, {{gza_out}}, {{hhcc_out}}, {{hsba_out}}, {{imagen_out}}, {{jsa_out}},
+                           {{kasa_out}}, {{lpe_out}}, {{lsg_out}}, {{ltn_out}}, {{lia_out}},
+                           {{mexa_out}}, {{nsbe_out}}, {{nak_out}}, {{oxd_out}}, {{pce_out}},
+                           {{qtpc_out}}, {{son_out}}, {{slo_out}}, {{shpe_out}}, {{tvsa_out}}]
                 }]
 
             },
